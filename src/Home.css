@@ -1,0 +1,32 @@
+.candidateContainer {
+  display: grid;
+  grid-template: 60px 1fr 1fr 1fr 1fr 1fr / 25% 75%;
+  height: 100vh;
+  grid-template-areas:
+    'header header'
+    'CandidateForm GithubTable'
+    'CandidateForm GithubTable'
+    'CandidateForm GithubTable'
+    'CandidateForm GithubTable'
+    'CandidateForm GithubTable'
+    'CandidateForm GithubTable';
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+}
+.header {
+  grid-area: header;
+  justify-self: center;
+  align-self: center;
+}
+
+.CandidateForm {
+  grid-area: CandidateForm;
+}
+
+.GithubTable {
+  margin: 0 10px;
+  margin-top: 30px;
+  grid-area: GithubTable;
+}

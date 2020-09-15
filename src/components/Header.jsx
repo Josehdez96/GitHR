@@ -1,7 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Header = () => {
-  return <div>Yo soy el header (Aquí me deben llegar los props del form)</div>;
+const Header = (props) => {
+  return (
+    <section>
+      <h4>{Object.keys(props.candidateData)}</h4>
+      <h4>{Object.values(props.candidateData)}</h4>
+    </section>
+  );
 };
 
-export default Header;
+const mapStateToProps = (reducers) => {
+  return reducers.candidateFormReducer;
+};
+
+export default connect(mapStateToProps)(Header);

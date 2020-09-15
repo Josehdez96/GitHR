@@ -2,6 +2,8 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Cookies from 'js-cookie';
+import { connect } from 'react-redux';
+import * as candidateFormActions from '../actions/candidateFormActions';
 
 class CandidateForm extends React.Component {
   state = {
@@ -16,6 +18,7 @@ class CandidateForm extends React.Component {
     Object.keys(this.state).map((key, index) =>
       Cookies.set(key, Object.values(this.state)[index], { expires: 2 })
     );
+    this.props.saveCandidateData(this.state);
   };
 
   handleChange = (e) => {
@@ -25,6 +28,7 @@ class CandidateForm extends React.Component {
   };
 
   render() {
+    // console.log('soy los props', this.props);
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId='formBasicName'>
@@ -75,4 +79,7 @@ class CandidateForm extends React.Component {
   }
 }
 
-export default CandidateForm;
+const mapStateToProps = (reducers) => {
+  return reducers.candidateFormReducer.candidateData;
+};
+export default connect(mapStateToProps, candidateFormActions)(CandidateForm);

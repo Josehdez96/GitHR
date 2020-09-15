@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import options from '../configs/GithubTableConfigs';
-import fetchData from '../API/fetchData';
+import { connect } from 'react-redux';
+import * as reposDataActions from '../actions/reposDataActions';
 
 const GithubTable = (props) => {
-  const [reposRawData, setReposRawData] = useState(props.reposData);
   /* loading and error states*/
 
   useEffect(() => {
-    /* USER está quemado, cambiarlo con los props */
-    fetchData('https://api.github.com/users/Josehdez96/repos').then((res) =>
-      setReposRawData(res)
-    );
+    props.setRepositoriesData();
   }, []);
-
-  let normalizedRepos = reposRawData.map((item) => ({
-    lenguaje: item.language,
-    branch: item.default_branch,
-    url: item.url,
-    name: item.name,
-    description: item.description,
-  }));
 
   return (
     <BootstrapTable
-      data={normalizedRepos}
+      data={props.reposData}
       striped
       hover
       condensed
@@ -62,4 +51,8 @@ const GithubTable = (props) => {
   );
 };
 
-export default GithubTable;
+const mapStateToProps = (reducers) => {
+  return reducers.reposDataReducer;
+};
+
+export default connect(mapStateToProps, reposDataActions)(GithubTable);

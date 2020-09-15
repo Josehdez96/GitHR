@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
+import { connect } from 'react-redux';
+import * as reposDataActions from '../actions/reposDataActions';
+
+// Filtrar reposData
 
 const FilterRepos = (props) => {
+  const [query, setQuery] = useState('');
+  let filteredRepositories = props.reposData.filter((repo) => {
+    return query.length >= 3
+      ? repo.name.toLowerCase().includes(query.toLowerCase())
+      : repo;
+  });
+
+  useEffect(() => {
+    props.filterRepositories(filteredRepositories);
+    console.log(props.reposData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
+
   return (
     <Form>
       <Form.Group controlId='formBasicFilterRepos'>
@@ -9,12 +26,16 @@ const FilterRepos = (props) => {
         <Form.Control
           type='text'
           placeholder='Digita el repositorio'
-          value=''
-          onChange={(e) => console.log(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
       </Form.Group>
     </Form>
   );
 };
 
-export default FilterRepos;
+const mapStateToProps = (reducers) => {
+  return reducers.reposDataReducer;
+};
+
+export default connect(mapStateToProps, reposDataActions)(FilterRepos);

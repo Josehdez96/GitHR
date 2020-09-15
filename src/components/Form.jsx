@@ -72,7 +72,7 @@ class CandidateForm extends React.Component {
           />
         </Form.Group>
         <Button variant='primary' type='submit'>
-          Guardar
+          Consultar
         </Button>
       </Form>
     );

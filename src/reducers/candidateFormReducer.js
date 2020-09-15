@@ -1,7 +1,7 @@
 import { SAVE_CANDIDATE_DATA } from '../types/candidateFormTypes';
 
 const INITIAL_STATE = {
-  candidateData: '',
+  candidateData: {},
 };
 
 export default (state = INITIAL_STATE, action) => {

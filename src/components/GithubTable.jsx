@@ -6,14 +6,14 @@ import * as reposDataActions from '../actions/reposDataActions';
 
 const GithubTable = (props) => {
   /* loading and error states*/
-
   useEffect(() => {
     props.setRepositoriesData();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.candidateFormReducer.candidateData]);
 
   return (
     <BootstrapTable
-      data={props.reposData}
+      data={props.reposDataReducer.reposData}
       striped
       hover
       condensed
@@ -51,8 +51,11 @@ const GithubTable = (props) => {
   );
 };
 
-const mapStateToProps = (reducers) => {
-  return reducers.reposDataReducer;
+const mapStateToProps = ({ reposDataReducer, candidateFormReducer }) => {
+  return {
+    reposDataReducer,
+    candidateFormReducer,
+  };
 };
 
 export default connect(mapStateToProps, reposDataActions)(GithubTable);

@@ -13,11 +13,9 @@ class CandidateForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // let userValues = Object.values(this.state);
     Object.keys(this.state).map((key, index) =>
       Cookies.set(key, Object.values(this.state)[index], { expires: 2 })
     );
-    //console.log(Cookies.get()); // Visualizar cookies actuales
   };
 
   handleChange = (e) => {

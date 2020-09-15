@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import fetchData from '../utils/fetchData';
+import options from '../configs/GithubTableConfigs';
+import fetchData from '../API/fetchData';
 
-const GithubTable = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const GithubTable = (props) => {
+  const [reposRawData, setReposRawData] = useState(props.reposData);
+  /* loading and error states*/
 
   useEffect(() => {
-    fetchData('https://api.github.com/users/Josehdez96/repos')
-      .then((res) => setProducts(res))
-      .catch((err) => console.error(err));
+    /* USER está quemado, cambiarlo con los props */
+    fetchData('https://api.github.com/users/Josehdez96/repos').then((res) =>
+      setReposRawData(res)
+    );
   }, []);
 
-  let allProducts = products.map((item) => ({
+  let normalizedRepos = reposRawData.map((item) => ({
     lenguaje: item.language,
     branch: item.default_branch,
     url: item.url,
@@ -21,21 +22,9 @@ const GithubTable = () => {
     description: item.description,
   }));
 
-  const options = {
-    sizePerPageList: [
-      {
-        text: '5',
-        value: 5,
-      },
-    ],
-    sizePerPage: 5,
-    prePage: 'Prev',
-    nextPage: 'Next',
-  };
-
   return (
     <BootstrapTable
-      data={allProducts}
+      data={normalizedRepos}
       striped
       hover
       condensed
@@ -72,11 +61,5 @@ const GithubTable = () => {
     </BootstrapTable>
   );
 };
-
-// response.map((item) => console.log(item.language));
-// response.map((item) => console.log(item.default_branch));
-// response.map((item) => console.log(item.url));
-// response.map((item) => console.log(item.name));
-// response.map((item) => console.log(item.description));
 
 export default GithubTable;

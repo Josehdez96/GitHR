@@ -8,14 +8,14 @@
     'CandidateForm GithubTable'
     'CandidateForm GithubTable'
     'CandidateForm GithubTable'
-    'CandidateForm GithubTable'
-    'CandidateForm GithubTable';
+    'FilterRepos GithubTable'
+    'FilterRepos GithubTable';
   justify-self: center;
   align-self: center;
   justify-content: center;
   align-content: center;
 }
-.header {
+.Header {
   grid-area: header;
   justify-self: center;
   align-self: center;
@@ -23,6 +23,10 @@
 
 .CandidateForm {
   grid-area: CandidateForm;
+}
+
+.FilterRepos {
+  grid-area: FilterRepos;
 }
 
 .GithubTable {

@@ -6,7 +6,6 @@ import * as reposDataActions from '../actions/reposDataActions';
 import sortIcon from '../icons/sortImage.png';
 
 const GithubTable = (props) => {
-  /* loading and error states*/
   useEffect(() => {
     props.setRepositoriesData();
     // eslint-disable-next-line react-hooks/exhaustive-deps

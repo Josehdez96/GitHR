@@ -15,7 +15,7 @@ export const setRepositoriesData = () => async (dispatch, getState) => {
   const { candidateData } = getState().candidateFormReducer;
   try {
     const reposRawData = await fetchData(
-      `https://api.github.com/users/${candidateData.github}/repos`
+      `https://api.github.com/users/${candidateData.Github}/repos`
     );
     let normalizedRepos = reposRawData.map((item) => ({
       lenguaje: item.language,

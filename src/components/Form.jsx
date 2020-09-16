@@ -7,11 +7,11 @@ import * as candidateFormActions from '../actions/candidateFormActions';
 
 class CandidateForm extends React.Component {
   state = {
-    nombresApellidos: '',
-    cedula: '',
-    nacimiento: '',
-    email: '',
-    github: '',
+    NombresApellidos: '',
+    Cédula: '',
+    Nacimiento: '',
+    Email: '',
+    Github: '',
   };
 
   handleSubmit = (e) => {
@@ -34,51 +34,51 @@ class CandidateForm extends React.Component {
         <Form.Group controlId='formBasicName'>
           <Form.Label>Nombres y apellidos</Form.Label>
           <Form.Control
-            name='nombresApellidos'
+            name='NombresApellidos'
             onChange={this.handleChange}
             type='text'
             placeholder='Ej. Alberto Emilio Correa Zapata'
-            value={this.state.nombresApellidos}
+            value={this.state.NombresApellidos}
           />
         </Form.Group>
         <Form.Group controlId='formBasicCC'>
-          <Form.Label>Cedula</Form.Label>
+          <Form.Label>Cédula</Form.Label>
           <Form.Control
-            name='cedula'
+            name='Cédula'
             onChange={this.handleChange}
             type='number'
             placeholder='Ej. 1037462829'
-            value={this.state.cedula}
+            value={this.state.Cédula}
           />
         </Form.Group>
         <Form.Group controlId='formBasicBirthDate'>
           <Form.Label>Fecha de nacimiento</Form.Label>
           <Form.Control
-            name='nacimiento'
+            name='Nacimiento'
             onChange={this.handleChange}
             type='date'
             placeholder='DD/MM/AAAA'
-            value={this.state.fechaDeNacimiento}
+            value={this.state.Nacimiento}
           />
         </Form.Group>
         <Form.Group controlId='formBasicEmail'>
           <Form.Label>Correo electronico</Form.Label>
           <Form.Control
-            name='email'
+            name='Email'
             onChange={this.handleChange}
             type='email'
             placeholder='Ej. aberto@seven4n.com'
-            value={this.state.email}
+            value={this.state.Email}
           />
         </Form.Group>
         <Form.Group controlId='formBasicGithub'>
           <Form.Label>Github</Form.Label>
           <Form.Control
-            name='github'
+            name='Github'
             onChange={this.handleChange}
             type='text'
             placeholder='Ej. albertodev52'
-            value={this.state.github}
+            value={this.state.Github}
           />
         </Form.Group>
         <Button variant='primary' type='submit'>

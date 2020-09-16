@@ -53,7 +53,7 @@ const GithubTable = (props) => {
         dataSort={true}
         tdStyle={{ whiteSpace: 'normal' }}
       >
-        Descripcion
+        Descripción
         <img src={sortIcon} alt='sortIcon' />
       </TableHeaderColumn>
     </BootstrapTable>

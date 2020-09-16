@@ -1,12 +1,14 @@
 import fetchData from '../API/fetchData';
-import { SET_REPOSITORIES_DATA } from '../types/reposDataTypes';
-import { FILTER_REPOSITORIES } from '../types/reposDataTypes';
+import {
+  SET_REPOSITORIES_DATA,
+  FILTER_REPOSITORIES,
+  SET_IMMUTABLE,
+} from '../types/reposDataTypes';
 
 export const setRepositoriesData = () => async (dispatch, getState) => {
   const { candidateData } = getState().candidateFormReducer;
   try {
     const reposRawData = await fetchData(
-      /* USER está quemado, cambiarlo con los props */
       `https://api.github.com/users/${candidateData.github}/repos`
     );
     let normalizedRepos = reposRawData.map((item) => ({
@@ -16,6 +18,14 @@ export const setRepositoriesData = () => async (dispatch, getState) => {
       name: item.name,
       description: item.description,
     }));
+
+    if (normalizedRepos.length >= 2) {
+      let immutable = JSON.parse(JSON.stringify(normalizedRepos));
+      dispatch({
+        type: SET_IMMUTABLE,
+        payload: immutable,
+      });
+    }
 
     dispatch({
       type: SET_REPOSITORIES_DATA,

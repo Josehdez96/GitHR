@@ -47,7 +47,7 @@ class CandidateForm extends React.Component {
             name='cedula'
             onChange={this.handleChange}
             type='number'
-            placeholder='Ej. 103746282'
+            placeholder='Ej. 1037462829'
             value={this.state.cedula}
           />
         </Form.Group>

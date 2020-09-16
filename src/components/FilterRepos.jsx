@@ -5,18 +5,14 @@ import * as reposDataActions from '../actions/reposDataActions';
 
 const FilterRepos = (props) => {
   const [query, setQuery] = useState('');
-
-  let filteredRepositories = props.reposData.filter((repo) => {
-    if (query.length >= 3) {
-      return repo.name.toLowerCase().includes(query.toLowerCase());
-    } else {
-      return repo;
-    }
-  });
+  let filteredRepositories = props.immutableData.filter((repo) =>
+    query.length >= 3
+      ? repo.name.toLowerCase().includes(query.toLowerCase())
+      : repo
+  );
 
   useEffect(() => {
     props.filterRepositories(filteredRepositories);
-    console.log(props.reposData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 

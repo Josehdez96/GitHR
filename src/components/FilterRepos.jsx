@@ -3,14 +3,15 @@ import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
 import * as reposDataActions from '../actions/reposDataActions';
 
-// Filtrar reposData
-
 const FilterRepos = (props) => {
   const [query, setQuery] = useState('');
+
   let filteredRepositories = props.reposData.filter((repo) => {
-    return query.length >= 3
-      ? repo.name.toLowerCase().includes(query.toLowerCase())
-      : repo;
+    if (query.length >= 3) {
+      return repo.name.toLowerCase().includes(query.toLowerCase());
+    } else {
+      return repo;
+    }
   });
 
   useEffect(() => {

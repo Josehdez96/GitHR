@@ -1,6 +1,6 @@
 .candidateContainer {
   display: grid;
-  grid-template: 60px 1fr 1fr 1fr 1fr 1fr / 25% 75%;
+  grid-template: 60px 1fr 1fr 1fr 1fr 1fr 1fr / 25% 75%;
   height: 100vh;
   grid-template-areas:
     'header header'
@@ -8,7 +8,7 @@
     'CandidateForm GithubTable'
     'CandidateForm GithubTable'
     'CandidateForm GithubTable'
-    'FilterRepos GithubTable'
+    'CandidateForm GithubTable'
     'FilterRepos GithubTable';
   justify-self: center;
   align-self: center;
@@ -19,6 +19,8 @@
   grid-area: header;
   justify-self: center;
   align-self: center;
+  display: grid;
+  grid-template: repeat(2, 30px);
 }
 
 .CandidateForm {

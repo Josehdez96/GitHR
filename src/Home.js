@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 import CandidateForm from './components/Form';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import GithubTable from './components/GithubTable';
 import FilterRepos from './components/FilterRepos';
 

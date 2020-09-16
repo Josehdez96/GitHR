@@ -9,6 +9,7 @@ class CandidateForm extends React.Component {
   state = {
     nombresApellidos: '',
     cedula: '',
+    nacimiento: '',
     email: '',
     github: '',
   };
@@ -28,7 +29,6 @@ class CandidateForm extends React.Component {
   };
 
   render() {
-    // console.log('soy los props', this.props);
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId='formBasicName'>
@@ -49,6 +49,16 @@ class CandidateForm extends React.Component {
             type='number'
             placeholder='Ej. 103746282'
             value={this.state.cedula}
+          />
+        </Form.Group>
+        <Form.Group controlId='formBasicBirthDate'>
+          <Form.Label>Fecha de nacimiento</Form.Label>
+          <Form.Control
+            name='nacimiento'
+            onChange={this.handleChange}
+            type='date'
+            placeholder='DD/MM/AAAA'
+            value={this.state.fechaDeNacimiento}
           />
         </Form.Group>
         <Form.Group controlId='formBasicEmail'>

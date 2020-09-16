@@ -3,6 +3,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import options from '../configs/GithubTableConfigs';
 import { connect } from 'react-redux';
 import * as reposDataActions from '../actions/reposDataActions';
+import sortIcon from '../icons/sortImage.png';
 
 const GithubTable = (props) => {
   /* loading and error states*/
@@ -20,11 +21,13 @@ const GithubTable = (props) => {
       pagination={true}
       options={options}
     >
-      <TableHeaderColumn dataField='lenguaje' isKey dataSort={true} width='100'>
+      <TableHeaderColumn dataField='lenguaje' isKey dataSort={true} width='120'>
         Lenguaje
+        <img src={sortIcon} alt='sortIcon' />
       </TableHeaderColumn>
-      <TableHeaderColumn dataField='branch' dataSort={true} width='100'>
+      <TableHeaderColumn dataField='branch' dataSort={true} width='110'>
         Branch
+        <img src={sortIcon} alt='sortIcon' />
       </TableHeaderColumn>
       <TableHeaderColumn
         dataField='url'
@@ -32,6 +35,7 @@ const GithubTable = (props) => {
         tdStyle={{ whiteSpace: 'normal' }}
       >
         Url Git
+        <img src={sortIcon} alt='sortIcon' />
       </TableHeaderColumn>
       <TableHeaderColumn
         dataField='name'
@@ -39,6 +43,7 @@ const GithubTable = (props) => {
         tdStyle={{ whiteSpace: 'normal' }}
       >
         Nombre
+        <img src={sortIcon} alt='sortIcon' />
       </TableHeaderColumn>
       <TableHeaderColumn
         dataField='description'
@@ -46,6 +51,7 @@ const GithubTable = (props) => {
         tdStyle={{ whiteSpace: 'normal' }}
       >
         Descripcion
+        <img src={sortIcon} alt='sortIcon' />
       </TableHeaderColumn>
     </BootstrapTable>
   );

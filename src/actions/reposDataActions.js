@@ -3,9 +3,15 @@ import {
   SET_REPOSITORIES_DATA,
   FILTER_REPOSITORIES,
   SET_IMMUTABLE,
+  LOADING,
+  ERROR,
 } from '../types/reposDataTypes';
 
 export const setRepositoriesData = () => async (dispatch, getState) => {
+  dispatch({
+    type: LOADING,
+  });
+
   const { candidateData } = getState().candidateFormReducer;
   try {
     const reposRawData = await fetchData(
@@ -32,7 +38,10 @@ export const setRepositoriesData = () => async (dispatch, getState) => {
       payload: normalizedRepos,
     });
   } catch (error) {
-    console.error(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Ha ocurrido un error',
+    });
   }
 };
 

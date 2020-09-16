@@ -12,6 +12,10 @@ const GithubTable = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.candidateFormReducer.candidateData]);
 
+  if (props.reposDataReducer.loading) {
+    return 'Cargando...';
+  }
+
   return (
     <BootstrapTable
       data={props.reposDataReducer.reposData}

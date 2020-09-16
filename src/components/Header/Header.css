@@ -1,1 +1,49 @@
 /* Place to improve the header view */
+.mainHeaderSection {
+  display: grid;
+  height: 150%;
+  margin-left: 13px;
+  font-size: 14px;
+  justify-items: center;
+  grid-template: 35% 65% / repeat(5, 1fr);
+  grid-template-areas:
+    'title0 title1 title2 title3 title4'
+    'candidateData0 candidateData1 candidateData2 candidateData3 candidateData4';
+}
+
+.title0 {
+  grid-area: title0;
+  font-weight: 700;
+}
+.title1 {
+  grid-area: title1;
+  font-weight: 700;
+}
+.title2 {
+  grid-area: title2;
+  font-weight: 700;
+}
+.title3 {
+  grid-area: title3;
+  font-weight: 700;
+}
+.title4 {
+  grid-area: title4;
+  font-weight: 700;
+}
+
+.candidateData0 {
+  grid-area: candidateData0;
+}
+.candidateData1 {
+  grid-area: candidateData1;
+}
+.candidateData2 {
+  grid-area: candidateData2;
+}
+.candidateData3 {
+  grid-area: candidateData3;
+}
+.candidateData4 {
+  grid-area: candidateData4;
+}

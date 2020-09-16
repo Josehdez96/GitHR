@@ -1,11 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Header.css';
 
 const Header = (props) => {
   return (
     <section className='mainHeaderSection'>
-      <h5>Encabezados: {Object.keys(props.candidateData) + '-'}</h5>
-      <h6>Candidato: {Object.values(props.candidateData) + '-'}</h6>
+      {Object.keys(props.candidateData).map((item, index) => (
+        <p className={`title${index}`} key={`title${index}`}>
+          {item}
+        </p>
+      ))}
+      {Object.values(props.candidateData).map((item, index) => (
+        <p className={`candidateData${index}`} key={`candidateData${index}`}>
+          {item}
+        </p>
+      ))}
     </section>
   );
 };

@@ -22,7 +22,7 @@ const FilterRepos = (props) => {
         <Form.Label>Filtrar repositorios</Form.Label>
         <Form.Control
           type='text'
-          placeholder='Digita el repositorio'
+          placeholder='Nombre del repositorio'
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

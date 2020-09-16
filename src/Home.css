@@ -17,10 +17,6 @@
 }
 .Header {
   grid-area: header;
-  justify-self: center;
-  align-self: center;
-  display: grid;
-  grid-template: repeat(2, 30px);
 }
 
 .CandidateForm {

@@ -3,7 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
+
 import * as candidateFormActions from '../actions/candidateFormActions';
+import * as reposDataActions from '../actions/reposDataActions';
+
+const { saveCandidateData } = candidateFormActions;
+const { setRepositoriesData } = reposDataActions;
 
 class CandidateForm extends React.Component {
   state = {
@@ -20,6 +25,7 @@ class CandidateForm extends React.Component {
       Cookies.set(key, Object.values(this.state)[index], { expires: 2 })
     );
     this.props.saveCandidateData(this.state);
+    this.props.setRepositoriesData();
   };
 
   handleChange = (e) => {
@@ -92,4 +98,10 @@ class CandidateForm extends React.Component {
 const mapStateToProps = (reducers) => {
   return reducers.candidateFormReducer.candidateData;
 };
-export default connect(mapStateToProps, candidateFormActions)(CandidateForm);
+
+const mapDispatchToProps = {
+  saveCandidateData,
+  setRepositoriesData,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CandidateForm);

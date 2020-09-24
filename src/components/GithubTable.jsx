@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import options from '../configs/GithubTableConfigs';
 import { connect } from 'react-redux';
@@ -6,11 +6,6 @@ import * as reposDataActions from '../actions/reposDataActions';
 import sortIcon from '../icons/sortImage.png';
 
 const GithubTable = (props) => {
-  useEffect(() => {
-    props.setRepositoriesData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.candidateFormReducer.candidateData]);
-
   if (props.reposDataReducer.loading) {
     return 'Cargando...';
   }

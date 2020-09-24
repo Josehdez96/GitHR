@@ -73,7 +73,7 @@ class CandidateForm extends React.Component {
             name='Email'
             onChange={this.handleChange}
             type='email'
-            placeholder='Ej. aberto@seven4n.com'
+            placeholder='Ej. alberto@gmail.com'
             value={this.state.Email}
           />
         </Form.Group>

@@ -1,6 +1,6 @@
 # Human Resources Project
 
-## Visit the app: https://git4n.vercel.app/
+## Visit the app: https://git-hr.vercel.app/
 
 ### The web can:
 
